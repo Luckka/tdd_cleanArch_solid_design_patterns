@@ -11,8 +11,7 @@ class RemoteAuthentication{
 
   RemoteAuthentication({@required this.httpClient, @required this.url});
   Future<void> auth(AuthenticationParms params) async{
-    final body = {'email': params.email, 'password': params.password};
-    await httpClient.request(url: url,method: 'post',body: body);
+    await httpClient.request(url: url,method: 'post',body: params.toJson());
   }
 }
 
